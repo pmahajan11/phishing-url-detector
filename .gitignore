@@ -5,3 +5,4 @@ scratchpad.txt
 .env
 gwfl.txt
 .DS_Store
+gunicorn.service
