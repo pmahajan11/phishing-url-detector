@@ -45,13 +45,13 @@ jobs:
             HOSTNAME : ${{ secrets.AWS_PUBLIC_DNS  }}
             USER_NAME : ${{ secrets.AWS_USERNAME  }}
         
-        run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            # Inside EC2
-            cd /home/ubuntu/application &&
-            git pull origin main &&
-            source venv/bin/activate
-            pip install -r requirements.txt
-            sudo systemctl restart pud.service
-          '
+          run: |
+            echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
+            ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+              # Inside EC2
+              cd /home/ubuntu/application &&
+              git pull origin main &&
+              source venv/bin/activate
+              pip install -r requirements.txt
+              sudo systemctl restart pud.service
+            '
