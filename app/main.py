@@ -25,7 +25,7 @@ clf = Classifier()
 
 @app.get("/")
 async def root():
-    return {"message": "Phishing Websites Detector v1.0.1"}
+    return {"message": "Phishing URL Detector v1.0.1"}
 
 
 @app.post("/users", response_model=schemas.NewUserOut, status_code=status.HTTP_201_CREATED)
