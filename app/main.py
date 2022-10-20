@@ -43,7 +43,7 @@ async def new_user(user: schemas.UserCreate, db=Depends(database.get_db)):
     return new_user
 
 
-@app.post("/users/info", response_model=schemas.UserOut, status_code=status.HTTP_302_FOUND)
+@app.post("/users/info", response_model=schemas.UserOut, status_code=status.HTTP_200_OK)
 async def get_user(user: schemas.UserIn, db=Depends(database.get_db)):
     user_out = database.read_user(dict(user), db)
     if not user_out:
@@ -52,7 +52,7 @@ async def get_user(user: schemas.UserIn, db=Depends(database.get_db)):
     return user_out
 
 
-@app.post("/apikey", response_model=schemas.APIKeyOut, status_code=status.HTTP_302_FOUND)
+@app.post("/apikey", response_model=schemas.APIKeyOut, status_code=status.HTTP_200_OK)
 async def get_apikey(user: schemas.UserIn, db=Depends(database.get_db)):
     apikey_out = database.read_user(dict(user), db)
     if not apikey_out:
