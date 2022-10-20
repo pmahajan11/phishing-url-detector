@@ -14,7 +14,7 @@ env:
   QUERY_LIMIT: ${{secrets.QUERY_LIMIT}}
   USER_LIMIT: ${{secrets.USER_LIMIT}}
 
-job:
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
